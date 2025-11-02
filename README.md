@@ -1,10 +1,10 @@
-# 💰 MoneyMaster - Personal Finance Management App
+# 💰 ExpenseTracker - Personal Finance Management App
 
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 ![Kotlin](https://img.shields.io/badge/kotlin-%230095D5.svg?style=for-the-badge&logo=kotlin&logoColor=white)
 ![Material Design](https://img.shields.io/badge/Material%20Design-757575?style=for-the-badge&logo=material-design&logoColor=white)
 
-A comprehensive personal finance management Android application built with Kotlin that helps users track their income, expenses, manage budgets, and gain insights into their spending habits through beautiful visualizations.
+A  personal finance management Android application built with Kotlin that helps users track their income, expenses, manage budgets, and gain insights into their spending habits through beautiful visualizations.
 
 ## ✨ Features
 
@@ -88,13 +88,7 @@ A comprehensive personal finance management Android application built with Kotli
    - Connect an Android device or start an emulator
    - Click the "Run" button or use `Ctrl+R`
 
-### First Time Setup
 
-1. **Launch the App** - The splash screen will appear
-2. **Complete Onboarding** - Go through the welcome screens
-3. **Create Account** - Register with email and password
-4. **Set Currency** - Choose your preferred currency
-5. **Start Tracking** - Add your first transaction!
 
 ## 📁 Project Structure
 
@@ -213,4 +207,4 @@ We welcome contributions! Please feel free to submit a Pull Request. For major c
 
 ---
 
-**Made with ❤️ for better financial management**
+**Made with ❤️ for better Experience**
