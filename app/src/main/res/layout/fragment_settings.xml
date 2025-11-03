@@ -41,7 +41,7 @@
             app:iconTint="@android:color/white"
             app:iconPadding="4dp"
             app:cornerRadius="12dp"
-            app:backgroundTint="#C65555"
+            app:backgroundTint="#CF4848"
             android:textSize="14sp" />
         </LinearLayout>
 
