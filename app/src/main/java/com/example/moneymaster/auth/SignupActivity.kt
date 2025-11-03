@@ -1,28 +1,36 @@
 package com.example.moneymaster.auth
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.moneymaster.MainActivity
 import com.example.moneymaster.R
 import com.google.android.material.textfield.TextInputEditText
 
 class SignupActivity : AppCompatActivity() {
+
     private lateinit var nameInput: TextInputEditText
     private lateinit var emailInput: TextInputEditText
     private lateinit var passwordInput: TextInputEditText
     private lateinit var confirmPasswordInput: TextInputEditText
     private lateinit var signupButton: Button
     private lateinit var loginPrompt: TextView
+    private lateinit var logoImage: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
         // Initialize views
+        logoImage = findViewById(R.id.logoImage)
         nameInput = findViewById(R.id.nameInput)
         emailInput = findViewById(R.id.emailInput)
         passwordInput = findViewById(R.id.passwordInput)
@@ -30,16 +38,42 @@ class SignupActivity : AppCompatActivity() {
         signupButton = findViewById(R.id.signupButton)
         loginPrompt = findViewById(R.id.loginPrompt)
 
-        // Set up click listeners
+        // Load GIF dynamically (same as login)
+        Glide.with(this)
+            .asGif()
+            .load(R.drawable.signup_logo)
+            .into(logoImage)
+
+        // Click Listeners
         signupButton.setOnClickListener {
+            hideKeyboard()
             if (validateInputs()) {
                 performSignup()
             }
         }
 
         loginPrompt.setOnClickListener {
+            hideKeyboard()
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
+        }
+    }
+
+    // --- Hide keyboard when tapping outside input fields ---
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+        if (currentFocus != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+            currentFocus!!.clearFocus()
+        }
+        return super.dispatchTouchEvent(ev)
+    }
+
+    private fun hideKeyboard() {
+        val view = currentFocus
+        view?.let {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(it.windowToken, 0)
         }
     }
 
@@ -99,4 +133,4 @@ class SignupActivity : AppCompatActivity() {
             Toast.makeText(this, "Failed to create account", Toast.LENGTH_SHORT).show()
         }
     }
-} 
+}

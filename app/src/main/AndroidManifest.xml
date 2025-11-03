@@ -27,10 +27,12 @@
             android:theme="@style/Theme.MoneyMaster.NoActionBar" />
         <activity
             android:name=".auth.LoginActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="false"
             android:theme="@style/Theme.MoneyMaster.NoActionBar" />
         <activity
             android:name=".auth.SignupActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="false"
             android:theme="@style/Theme.MoneyMaster.NoActionBar" />
         <activity

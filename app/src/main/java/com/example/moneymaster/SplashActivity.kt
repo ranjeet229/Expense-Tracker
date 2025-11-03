@@ -1,12 +1,17 @@
 package com.example.moneymaster
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.moneymaster.auth.AuthManager
-import com.example.moneymaster.auth.LoginActivity
 import com.example.moneymaster.onboarding.OnboardingActivity
 
 class SplashActivity : AppCompatActivity() {
@@ -15,17 +20,33 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        // Hide the action bar if it exists
         supportActionBar?.hide()
 
-        // Create a handler to delay the transition
+        val splashLogo = findViewById<ImageView>(R.id.splashLogo)
+        val appName = findViewById<TextView>(R.id.appName)
+        val progressBar = findViewById<ProgressBar>(R.id.progressBar)
+
+        Glide.with(this)
+            .asGif()
+            .load(R.drawable.expo)
+            .into(splashLogo)
+
+        val topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation)
+        val bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation)
+        val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
+
+        splashLogo.startAnimation(topAnim)
+        appName.startAnimation(bottomAnim)
+        progressBar.startAnimation(fadeIn)
+
         Handler(Looper.getMainLooper()).postDelayed({
-            if (AuthManager.isLoggedIn(this)) {
-                startActivity(Intent(this, MainActivity::class.java))
+            val nextActivity = if (AuthManager.isLoggedIn(this)) {
+                MainActivity::class.java
             } else {
-                startActivity(Intent(this, OnboardingActivity::class.java))
+                OnboardingActivity::class.java
             }
+            startActivity(Intent(this, nextActivity))
             finish()
-        }, 3000) // 3000 milliseconds = 3 seconds
+        }, 3000)
     }
-} 
+}

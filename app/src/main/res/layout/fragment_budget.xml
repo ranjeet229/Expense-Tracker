@@ -50,7 +50,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="@string/save_budget" />
+                    android:text="@string/save_budget"
+                    />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

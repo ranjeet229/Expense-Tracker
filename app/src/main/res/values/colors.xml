@@ -24,7 +24,10 @@
     <color name="dark_blue2">#283593</color>
     <color name="dark_blue3">#009688</color>
     <color name="dark_surface">#121212</color>
-    
+    <color name="wallet_green">#009639</color>
+    <color name="light_teal">#29AFC1FF</color>
+
+
     <!-- Semantic Colors -->
     <color name="red">#F44336</color>
     <color name="green">#4CAF50</color>
@@ -40,4 +43,9 @@
     <color name="text_secondary">#757575</color>
     <color name="text_on_dark">#FFFFFF</color>
     <color name="text_hint">#BDBDBD</color>
+
+    <color name="light_blue_background">#E8F1FF</color>
+    <color name="primary_blue">#3A7BD5</color>
+    <color name="transparent_white">#33FFFFFF</color>
+
 </resources>

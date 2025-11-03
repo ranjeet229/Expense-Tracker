@@ -1,40 +1,75 @@
 package com.example.moneymaster.auth
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.moneymaster.MainActivity
 import com.example.moneymaster.R
 import com.google.android.material.textfield.TextInputEditText
 
 class LoginActivity : AppCompatActivity() {
+
     private lateinit var emailInput: TextInputEditText
     private lateinit var passwordInput: TextInputEditText
     private lateinit var loginButton: Button
     private lateinit var signupPrompt: TextView
+    private lateinit var logoImage: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
         // Initialize views
+        logoImage = findViewById(R.id.logoImage)
         emailInput = findViewById(R.id.emailInput)
         passwordInput = findViewById(R.id.passwordInput)
         loginButton = findViewById(R.id.loginButton)
         signupPrompt = findViewById(R.id.signupPrompt)
 
-        // Set up click listeners
+        // Load GIF dynamically
+        Glide.with(this)
+            .asGif()
+            .load(R.drawable.expense_logo)
+            .into(logoImage)
+
+        // Login button
         loginButton.setOnClickListener {
+            hideKeyboard()
             if (validateInputs()) {
                 performLogin()
             }
         }
 
+        // Signup redirect
         signupPrompt.setOnClickListener {
+            hideKeyboard()
             startActivity(Intent(this, SignupActivity::class.java))
+        }
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+        if (currentFocus != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+            currentFocus!!.clearFocus()
+        }
+        return super.dispatchTouchEvent(ev)
+    }
+
+    private fun hideKeyboard() {
+        val view = currentFocus
+        view?.let {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(it.windowToken, 0)
         }
     }
 
@@ -77,4 +112,4 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show()
         }
     }
-} 
+}

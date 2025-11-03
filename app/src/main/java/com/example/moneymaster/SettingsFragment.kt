@@ -57,11 +57,16 @@ class SettingsFragment : Fragment() {
         val currencies = Currency.values()
         val adapter = ArrayAdapter(
             requireContext(),
-            android.R.layout.simple_spinner_item,
+            R.layout.spinner_item_currency,
             currencies
         )
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_currency)
         currencySpinner.adapter = adapter
+
+
+
+        currencySpinner.setBackgroundResource(android.R.drawable.btn_dropdown)
+        currencySpinner.dropDownVerticalOffset = 80
 
         // Set current selection
         val currentCurrency = DataManager.getSelectedCurrency(requireContext())

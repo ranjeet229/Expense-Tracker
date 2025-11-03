@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Money Master</string>
+    <string name="app_name">Expense Tracker</string>
     <string name="statistics">Statistics</string>
     <string name="all_transactions">All Transactions</string>
     <string name="income_by_category">Income by Category</string>
