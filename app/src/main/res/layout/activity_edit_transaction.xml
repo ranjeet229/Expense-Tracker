@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/dark_blue3">
+    android:background="@color/teal_700">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -68,7 +68,7 @@
                     app:boxStrokeColor="@color/primary"
                     app:hintTextColor="@color/black"
                     app:startIconDrawable="@drawable/ic_money"
-                    app:startIconTint="@color/primary"
+                    app:startIconTint="@color/teal_700"
                     android:textColorHint="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -129,7 +129,7 @@
                     app:boxStrokeColor="@color/primary"
                     app:hintTextColor="@color/black"
                     app:startIconDrawable="@drawable/ic_category"
-                    app:startIconTint="@color/primary"
+                    app:startIconTint="@color/teal_700"
                     android:textColorHint="@color/black">
 
                     <AutoCompleteTextView
@@ -178,7 +178,7 @@
                         android:textAppearance="@style/TextAppearance.MoneyMaster.Button"
                         android:paddingVertical="12dp"
                         android:textColor="@color/white"
-                        app:backgroundTint="@color/primary"
+                        app:backgroundTint="@color/teal_700"
                         app:cornerRadius="12dp"
                         app:elevation="4dp"
                         style="@style/Widget.MoneyMaster.Button" />
@@ -193,7 +193,7 @@
                         android:textAppearance="@style/TextAppearance.MoneyMaster.Button"
                         android:paddingVertical="12dp"
                         android:textColor="@color/white"
-                        app:backgroundTint="@color/primary"
+                        app:backgroundTint="@color/teal_700"
                         app:cornerRadius="12dp"
                         app:elevation="4dp"
                         style="@style/Widget.MoneyMaster.Button" />
