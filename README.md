@@ -2,7 +2,8 @@
 
 
 ![Kotlin](https://img.shields.io/badge/kotlin-%230095D5.svg?style=for-the-badge&logo=kotlin&logoColor=white)
-![Download Link](https://drive.google.com/file/d/1r7jLW0VJdrFdZ21InidjGfpUyFVOOTK5/view?usp=sharing)
+
+ **[Download ExpenseTracker APK](https://drive.google.com/file/d/1r7jLW0VJdrFdZ21InidjGfpUyFVOOTK5/view?usp=sharing)**
 
 
 
